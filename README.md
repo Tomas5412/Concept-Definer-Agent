@@ -1,6 +1,6 @@
 # Concept-Definer-Agent
 
-![Concept_Definer_Agent.png]()
+![Cool ass photo of PDF on fire](Concept_Definer_Agent.png)
 
 Google adk agent that defines concepts found in PDF files. Made for Kaggle's "5 days of AI" Capstone Project
 
