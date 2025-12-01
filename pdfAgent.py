@@ -14,7 +14,7 @@ from pydantic import BaseModel
 from pdfFunctions import get_pdf_text_from_artifact
 
 
-AGENT_URL = "http://localhost" #Change if needed
+AGENT_URL = "http://localhost" #Change for release
 
 # Subdivide the user query into concept and text from the pdf. 
 # This is used by the root agent to comunicate with the search agent.
@@ -109,21 +109,10 @@ root_agent = Agent(
 
 
 app = App(
-    name='pdf_data_extraction_agent',
+    name='concept_definer_agent',
     root_agent=root_agent,
     plugins=[SaveFilesAsArtifactsPlugin()],
 )
 
-card = AgentCard(
-    name="PDF concept definer agent",
-    url= AGENT_URL,
-    description="Extracts definitions from concepts inside PDF files.",
-    version="1.0.0",
-    default_input_modes= ["text/plain","application/pdf"],
-    default_output_modes= ["text/plain"],
-    capabilities={},
-    skills= []
-)
-
 # Launch the agent!
-to_a2a(agent=root_agent, agent_card=card)
+to_a2a(agent=root_agent)
